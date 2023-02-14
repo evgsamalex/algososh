@@ -10,8 +10,8 @@ const nextState = (arr: IElement<string>[], i: number, j: number) => {
 const textToElements = (text:string):IElement<string>[] => {
   let state = text.length > 1 ? ElementStates.Default : ElementStates.Modified;
   return text.split('')
-    .map(s => {
-      return new Element(s, state);
+    .map((s,index) => {
+      return new Element(index,s, state);
     });
 }
 

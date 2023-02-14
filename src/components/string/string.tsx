@@ -1,56 +1,52 @@
-import React, {useState} from "react";
+import React, {FormEvent, useState} from "react";
 import {SolutionLayout} from "../ui/solution-layout/solution-layout";
-import css from './strring.module.css';
 import {Input} from "../ui/input/input";
 import {Button} from "../ui/button/button";
-import {Circle} from "../ui/circle/circle";
 import {withDelay} from "../../services/utils";
-import {ElementStates} from "../../types/element-states";
 import reverseElements from "../../services/reverse";
 import {useFetching} from "../../hooks/useFetching";
-
-type TItem = {
-  letter: string,
-  state: ElementStates;
-}
-
+import Container from "../container/Container";
+import CircleList from "../ui/circle-list/circle-list";
+import {IElement} from "../../types/structures";
+import Form from "../ui/form/form";
 
 export const StringComponent: React.FC = () => {
     const [text, setText] = useState<string>('');
-    const [letters, setLetters] = useState<TItem[]>([]);
+    const [letters, setLetters] = useState<IElement<string>[]>([]);
 
     const [isLoading, , fetching] = useFetching(async () => {
       await reverse(text);
     });
 
+    const onSubmit = async (e: FormEvent) => {
+      e.preventDefault();
+      await fetching();
+    }
+
     const reverse = async (text: string) => {
       await withDelay(reverseElements(text), item => {
-        const items = item.map((element) => {
-          return {letter: element.value, state: element.state};
-        })
-        setLetters(items);
+        setLetters([...item]);
       })
     }
 
     return (
       <SolutionLayout title="Строка">
-        <div className={css.container}>
-          <div className={css.control}>
-            <Input maxLength={11}
-                   isLimitText
-                   onChange={(e) => setText(e.currentTarget.value)}
-                   disabled={isLoading}
-            />
-            <Button text={'Развернуть'} disabled={text.length === 0} onClick={fetching} isLoader={isLoading}/>
-          </div>
-          <div className={css.letters + ' mt-40'}>
-            {
-              letters.map((item, index) => (
-                <Circle key={index} letter={item.letter} state={item.state}/>
-              ))
-            }
-          </div>
-        </div>
+        <Container
+          control={
+            <Form onSubmit={fetching}>
+              <Input maxLength={11}
+                     isLimitText
+                     onChange={(e) => setText(e.currentTarget.value)}
+                     disabled={isLoading}/>
+              <Button text={'Развернуть'}
+                      disabled={text.length === 0}
+                      onClick={onSubmit}
+                      isLoader={isLoading}
+                      type={"submit"}/>
+            </Form>
+          }>
+          <CircleList items={letters} extraClassName={'mt-40'}/>
+        </Container>
       </SolutionLayout>
     );
   }

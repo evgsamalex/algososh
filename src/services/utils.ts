@@ -13,10 +13,10 @@ export const swap = <T>(arr: T[], from: number, to: number) => {
 export const withDelay = async <T, >(generator: Generator<T, boolean>, callBack: (item:T)=> void, delayMs: number = DELAY_IN_MS) => {
   while (true){
     const next = generator.next();
-    callBack(next.value as T);
     if(next.done){
       break;
     }
+    callBack(next.value as T);
     await delay(delayMs);
   }
   for (let item of generator){
