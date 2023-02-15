@@ -27,7 +27,6 @@ export const FibonacciPage: React.FC = () => {
 
   const run = async (number: number) => {
     await withDelay(fibonacci(number), item => {
-      console.log(item);
       setNumbers(prevState => [...prevState, item]);
     }, SHORT_DELAY_IN_MS)
   }
