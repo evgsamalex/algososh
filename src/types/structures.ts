@@ -5,6 +5,9 @@ export interface IElement<T> {
   state: ElementStates;
   index: number;
   nextState: () => void;
+  changing: () => void;
+  modified: () => void;
+  default: () => void;
 }
 
 export class Element<T> implements IElement<T> {
@@ -29,6 +32,18 @@ export class Element<T> implements IElement<T> {
         break;
     }
   }
+
+  public changing() {
+    this.state = ElementStates.Changing
+  };
+
+  public modified() {
+    this.state = ElementStates.Modified
+  };
+
+  public default() {
+    this.state = ElementStates.Default
+  };
 }
 
 
