@@ -1,4 +1,4 @@
-import {Element, IElement} from "../types/structures";
+import {Element, IElement} from "../types/structures/element";
 import {ElementStates} from "../types/element-states";
 import {swap} from "./utils";
 
@@ -31,7 +31,7 @@ export default function* reverseElements(text: string): Generator<IElement<strin
     j--;
     nextState(arr, i, j);
     if (i >= j) {
-      return arr;
+      break;
     }
     yield arr;
   }

@@ -7,7 +7,7 @@ import {useFetching} from "../../hooks/useFetching";
 import {RadioInput} from "../ui/radio-input/radio-input";
 import {Direction} from "../../types/direction";
 import {bubbleGenerator, randomArr, selectGenerator} from "../../services/sort";
-import {IElement} from "../../types/structures";
+import {IElement} from "../../types/structures/element";
 import {Column} from "../ui/column/column";
 import {withDelay} from "../../services/utils";
 import {SHORT_DELAY_IN_MS} from "../../constants/delays";

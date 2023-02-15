@@ -7,7 +7,7 @@ import reverseElements from "../../services/reverse";
 import {useFetching} from "../../hooks/useFetching";
 import Container from "../container/Container";
 import CircleList from "../ui/circle-list/circle-list";
-import {IElement} from "../../types/structures";
+import {IElement} from "../../types/structures/element";
 import Form from "../ui/form/form";
 
 export const StringComponent: React.FC = () => {

@@ -1,4 +1,4 @@
-import {ElementStates} from "./element-states";
+import {ElementStates} from "../element-states";
 
 export interface IElement<T> {
   value: T,
@@ -8,6 +8,8 @@ export interface IElement<T> {
   changing: () => void;
   modified: () => void;
   default: () => void;
+  head?: string;
+  tail?: string
 }
 
 export class Element<T> implements IElement<T> {
@@ -21,6 +23,9 @@ export class Element<T> implements IElement<T> {
   public state: ElementStates
 
   public index: number;
+
+  public head?: string;
+  public tail?: string;
 
   public nextState() {
     switch (this.state) {

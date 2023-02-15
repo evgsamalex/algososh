@@ -5,7 +5,7 @@ import {Input} from "../ui/input/input";
 import {Button} from "../ui/button/button";
 import CircleList from "../ui/circle-list/circle-list";
 import Container from "../container/Container";
-import {IElement} from "../../types/structures";
+import {IElement} from "../../types/structures/element";
 import {useFetching} from "../../hooks/useFetching";
 import {withDelay} from "../../services/utils";
 import fibonacci from "../../services/fibonacci";

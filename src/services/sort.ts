@@ -1,5 +1,5 @@
 import {Direction} from "../types/direction";
-import {Element, IElement} from "../types/structures";
+import {Element, IElement} from "../types/structures/element";
 import {swap} from "./utils";
 
 const getRandomInt = (min: number = 3, max: number = 17): number => {

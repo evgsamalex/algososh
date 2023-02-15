@@ -1,4 +1,4 @@
-import {Element, IElement} from "../types/structures";
+import {Element, IElement} from "../types/structures/element";
 import {ElementStates} from "../types/element-states";
 
 export default function* fibonacci(n: number): Generator<IElement<number>> {
