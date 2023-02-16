@@ -17,6 +17,8 @@ export const withDelay = async <T, >(generator: Generator<T, boolean>, callBack:
       break;
     }
     callBack(next.value as T);
-    await delay(delayMs);
+    if(!next.done){
+      await delay(delayMs);
+    }
   }
 }
