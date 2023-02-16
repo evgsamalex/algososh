@@ -1,17 +1,18 @@
 import {IStack} from "../types/structures/stack";
 import {Element, IElement} from "../types/structures/element";
 import {ElementStates} from "../types/element-states";
+import {headTail} from "./utils";
 
-const setTop = (stack: IStack<IElement<string>>, head?:string) => {
+const setTop = (stack: IStack<IElement<string>>, head?: string) => {
   const last = stack.peak();
   if (last) {
-    last.head = head;
+    last.head = head ? headTail(head) : undefined;
   }
 }
 
 export function* stackPush(stack: IStack<IElement<string>>, text: string): Generator<IStack<IElement<string>>> {
   const element = new Element(stack.length(), text, ElementStates.Changing);
-  element.head = 'top';
+  element.head = headTail('top');
   setTop(stack);
   stack.push(element);
   yield stack;
@@ -22,7 +23,7 @@ export function* stackPush(stack: IStack<IElement<string>>, text: string): Gener
 
 export function* stackRemove(stack: IStack<IElement<string>>): Generator<IStack<IElement<string>>> {
   const last = stack.peak();
-  if(last){
+  if (last) {
     last.changing();
   }
   yield stack;

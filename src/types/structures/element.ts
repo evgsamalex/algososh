@@ -1,5 +1,12 @@
 import {ElementStates} from "../element-states";
 
+export type THeadTail = {
+  value: string;
+  elementType: 'element' | 'string'
+  state: ElementStates;
+  hideElement?: boolean;
+}
+
 export interface IElement<T> {
   value: T,
   state: ElementStates;
@@ -8,8 +15,8 @@ export interface IElement<T> {
   changing: () => void;
   modified: () => void;
   default: () => void;
-  head?: string;
-  tail?: string
+  head?: THeadTail;
+  tail?: THeadTail;
 }
 
 export class Element<T> implements IElement<T> {
@@ -24,8 +31,8 @@ export class Element<T> implements IElement<T> {
 
   public index: number;
 
-  public head?: string;
-  public tail?: string;
+  public head?: THeadTail;
+  public tail?: THeadTail;
 
   public nextState() {
     switch (this.state) {

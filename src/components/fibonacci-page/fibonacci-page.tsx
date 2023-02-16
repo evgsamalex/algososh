@@ -10,6 +10,7 @@ import {useFetching} from "../../hooks/useFetching";
 import {withDelay} from "../../services/utils";
 import fibonacci from "../../services/fibonacci";
 import {SHORT_DELAY_IN_MS} from "../../constants/delays";
+import FieldSet from "../ui/fieldset/fieldset";
 
 export const FibonacciPage: React.FC = () => {
   const [number, setNumber] = useState<number>(0);
@@ -36,20 +37,22 @@ export const FibonacciPage: React.FC = () => {
       <Container
         control={
           <Form onSubmit={fetching}>
-            <Input max={19}
-                   isLimitText
-                   onChange={(e) => setNumber(Number(e.currentTarget.value))}
-                   disabled={isLoading}
-                   type={'number'}
-            />
-            <Button text={'Развернуть'}
-                    onClick={onSubmit}
-                    disabled={number < 1 || number > 19}
-                    isLoader={isLoading}
-                    type={"submit"}/>
+            <FieldSet>
+              <Input max={19}
+                     isLimitText
+                     onChange={(e) => setNumber(Number(e.currentTarget.value))}
+                     disabled={isLoading}
+                     type={'number'}
+              />
+              <Button text={'Рассчитать'}
+                      onClick={onSubmit}
+                      disabled={number < 1 || number > 19}
+                      isLoader={isLoading}
+                      type={"submit"}/>
+            </FieldSet>
           </Form>
         }>
-        <CircleList items={numbers} extraClassName={'mt-40'} showIndex />
+        <CircleList items={numbers} extraClassName={'mt-40'} showIndex/>
       </Container>
     </SolutionLayout>
   );

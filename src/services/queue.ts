@@ -1,5 +1,6 @@
 import {IQueue} from "../types/structures/queue";
 import {Element, IElement} from "../types/structures/element";
+import {headTail} from "./utils";
 
 export const toItems = <T, >(queue: IQueue<IElement<T>>, empty: T): IElement<T>[] => {
   const items = [...queue.all()];
@@ -9,8 +10,8 @@ export const toItems = <T, >(queue: IQueue<IElement<T>>, empty: T): IElement<T>[
       item = new Element(index, empty);
     }
     item.index = index;
-    item.head = item.index === queue.head ? 'head' : undefined;
-    item.tail = item.index === queue.tail ? 'tail' : undefined;
+    item.head = item.index === queue.head ? headTail('head') : undefined;
+    item.tail = item.index === queue.tail ? headTail('tail') : undefined;
     return item;
   });
 }
@@ -23,10 +24,10 @@ export function* enqueueGenerator<T>(queue: IQueue<IElement<T>>, items: IElement
   return toItems(queue, empty);
 }
 
-export function* dequeueGenerator<T>(queue: IQueue<IElement<T>>, items:IElement<T>[], empty: T): Generator<IElement<T>[]> {
-  const current = items.find(x=>x.index === queue.head);
+export function* dequeueGenerator<T>(queue: IQueue<IElement<T>>, items: IElement<T>[], empty: T): Generator<IElement<T>[]> {
+  const current = items.find(x => x.index === queue.head);
   current?.changing();
   yield [...items];
   queue.dequeue();
-  return toItems(queue,empty);
+  return toItems(queue, empty);
 }

@@ -11,6 +11,7 @@ import {IElement} from "../../types/structures/element";
 import {withDelay} from "../../services/utils";
 import {stackPush, stackRemove} from "../../services/stack";
 import {SHORT_DELAY_IN_MS} from "../../constants/delays";
+import FieldSet from "../ui/fieldset/fieldset";
 
 export const StackPage: React.FC = () => {
   const [text, setText] = useState<string>('');
@@ -49,25 +50,27 @@ export const StackPage: React.FC = () => {
       <Container
         control={
           <Form onSubmit={onSubmit}>
-            <Input maxLength={4}
-                   isLimitText
-                   onChange={(e) => setText(e.currentTarget.value)}
-                   value={text}
-                   disabled={isLoading}/>
-            <Button text={'Добавить'}
-                    disabled={isLoading || text.length === 0}
-                    type={"submit"}/>
+            <FieldSet>
+              <Input maxLength={4}
+                     isLimitText
+                     onChange={(e) => setText(e.currentTarget.value)}
+                     value={text}
+                     disabled={isLoading}/>
+              <Button text={'Добавить'}
+                      disabled={isLoading || text.length === 0}
+                      type={"submit"}/>
 
-            <Button text={'Удалить'}
-                    onClick={() => fetching(remove)}
-                    disabled={isLoading || items.length === 0}
-                    type={"button"}/>
+              <Button text={'Удалить'}
+                      onClick={() => fetching(remove)}
+                      disabled={isLoading || items.length === 0}
+                      type={"button"}/>
 
-            <Button text={'Очистить'}
-                    disabled={isLoading || items.length === 0}
-                    type={"button"}
-                    extraClass={'ml-40'}
-                    onClick={clear}/>
+              <Button text={'Очистить'}
+                      disabled={isLoading || items.length === 0}
+                      type={"button"}
+                      extraClass={'ml-40'}
+                      onClick={clear}/>
+            </FieldSet>
           </Form>
         }>
         <CircleList items={items} extraClassName={'mt-40'} showIndex/>

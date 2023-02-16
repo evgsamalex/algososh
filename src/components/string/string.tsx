@@ -9,6 +9,7 @@ import Container from "../container/Container";
 import CircleList from "../ui/circle-list/circle-list";
 import {IElement} from "../../types/structures/element";
 import Form from "../ui/form/form";
+import FieldSet from "../ui/fieldset/fieldset";
 
 export const StringComponent: React.FC = () => {
     const [text, setText] = useState<string>('');
@@ -34,15 +35,17 @@ export const StringComponent: React.FC = () => {
         <Container
           control={
             <Form onSubmit={fetching}>
-              <Input maxLength={11}
-                     isLimitText
-                     onChange={(e) => setText(e.currentTarget.value)}
-                     disabled={isLoading}/>
-              <Button text={'Развернуть'}
-                      disabled={text.length === 0}
-                      onClick={onSubmit}
-                      isLoader={isLoading}
-                      type={"submit"}/>
+              <FieldSet>
+                <Input maxLength={11}
+                       isLimitText
+                       onChange={(e) => setText(e.currentTarget.value)}
+                       disabled={isLoading}/>
+                <Button text={'Развернуть'}
+                        disabled={text.length === 0}
+                        onClick={onSubmit}
+                        isLoader={isLoading}
+                        type={"submit"}/>
+              </FieldSet>
             </Form>
           }>
           <CircleList items={letters} extraClassName={'mt-40'}/>
