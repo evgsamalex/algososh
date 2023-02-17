@@ -49,7 +49,6 @@ export function* bubbleGenerator(arr: IElement<number>[], direction: Direction) 
   const {length} = arr;
   for (let i = 0; i < length; i++) {
     for (let j = 0; j < length - i - 1; j++) {
-
       arr[j].changing();
       arr[j + 1].changing();
       yield arr;
@@ -63,6 +62,6 @@ export function* bubbleGenerator(arr: IElement<number>[], direction: Direction) 
     }
 
     arr[length - i - 1].modified();
-
   }
+  return arr;
 }

@@ -7,11 +7,11 @@ const nextState = (arr: IElement<string>[], i: number, j: number) => {
   arr[j].nextState();
 }
 
-const textToElements = (text:string):IElement<string>[] => {
+const textToElements = (text: string): IElement<string>[] => {
   let state = text.length > 1 ? ElementStates.Default : ElementStates.Modified;
   return text.split('')
-    .map((s,index) => {
-      return new Element(index,s, state);
+    .map((s, index) => {
+      return new Element(index, s, state);
     });
 }
 
@@ -20,7 +20,8 @@ export default function* reverseElements(text: string): Generator<IElement<strin
 
   yield arr;
 
-  let i = 0;  let j = text.length - 1;
+  let i = 0;
+  let j = text.length - 1;
   nextState(arr, i, j);
   yield arr;
 
@@ -31,7 +32,7 @@ export default function* reverseElements(text: string): Generator<IElement<strin
     j--;
     nextState(arr, i, j);
     if (i >= j) {
-      break;
+      return arr;
     }
     yield arr;
   }
