@@ -1,0 +1,15 @@
+.items {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  max-width: 957px;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}

@@ -1,0 +1,12 @@
+.defaultButton {
+  min-width: 175px;
+}
+
+.bigButton {
+  min-width: 362px;
+}
+
+.input {
+  min-width: 204px;
+  max-width: 204px;
+}

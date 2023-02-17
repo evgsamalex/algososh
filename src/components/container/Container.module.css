@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  gap: 12px;
+  box-sizing: border-box;
+}
