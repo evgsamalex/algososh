@@ -6,5 +6,9 @@ declare namespace Cypress {
 
   interface Chainable<Subject = any> {
     checkCircle<E extends Node = HTMLElement>(element: E | JQuery<E>, state: TCircleState): Chainable<JQuery<E>>
+
+    checkInputAndButton(inputSelector: string, buttonSelector: string): Chainable
+
+    setInputAndSubmit(inputSelector: string, submitSelector: string, text: string): Chainable
   }
 }

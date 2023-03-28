@@ -43,12 +43,15 @@ export const FibonacciPage: React.FC = () => {
                      onChange={(e) => setNumber(Number(e.currentTarget.value))}
                      disabled={isLoading}
                      type={'number'}
+                     data-cy={'input'}
               />
               <Button text={'Рассчитать'}
                       onClick={onSubmit}
                       disabled={number < 1 || number > 19}
                       isLoader={isLoading}
-                      type={"submit"}/>
+                      type={"submit"}
+                      data-cy={'submit'}
+              />
             </FieldSet>
           </Form>
         }>

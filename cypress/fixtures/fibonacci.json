@@ -1,0 +1,54 @@
+{
+  "text": "3",
+  "delay": 500,
+  "states": [
+    [
+      {
+        "letter": "1",
+        "state": "default"
+      }
+    ],
+    [
+      {
+        "letter": "1",
+        "state": "default"
+      },
+      {
+        "letter": "1",
+        "state": "default"
+      }
+    ],
+    [
+      {
+        "letter": "1",
+        "state": "default"
+      },
+      {
+        "letter": "1",
+        "state": "default"
+      },
+      {
+        "letter": "2",
+        "state": "default"
+      }
+    ],
+    [
+      {
+        "letter": "1",
+        "state": "default"
+      },
+      {
+        "letter": "1",
+        "state": "default"
+      },
+      {
+        "letter": "2",
+        "state": "default"
+      },
+      {
+        "letter": "3",
+        "state": "default"
+      }
+    ]
+  ]
+}

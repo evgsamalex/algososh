@@ -1,16 +1,17 @@
-import {submitSelector, circleSelector, inputSelector} from "./constants";
+import {submitSelector, inputSelector, circleSelector} from "./constants";
 
 describe('string tests', () => {
   beforeEach(() => {
-    cy.visit('/recursion');
+    cy.visit('/fibonacci');
   });
 
   it('Кнопка должна быть не активна если текст пустой', () => {
     cy.checkInputAndButton(inputSelector, submitSelector);
   });
 
-  it('Проверка разворота строки', () => {
-    cy.fixture('string').then(obj => {
+  it('Числа должны генерироваться корректно', () => {
+    cy.fixture('fibonacci').then(obj => {
+
       cy.setInputAndSubmit(inputSelector, submitSelector, obj.text);
 
       for (let state of obj.states) {
