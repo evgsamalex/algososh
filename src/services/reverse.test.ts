@@ -21,7 +21,7 @@ const data: TestData[] = [
   {name: "Разворот пустой строки", text: ''},
 ]
 
-describe.each<TestData>(data)('Тест строки', ({name, text}) => {
+describe.each<TestData>(data)('Тесты разворота строки', ({name, text}) => {
   it(name, () => {
     let lastState: IElement<string>[] = [];
     for (let state of reverseElements(text)) {
