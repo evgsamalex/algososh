@@ -1,6 +1,6 @@
 import React from "react";
-import { ReturnButton } from "../return-button/return-button";
-import { Link } from "react-router-dom";
+import {ReturnButton} from "../return-button/return-button";
+import {Link} from "react-router-dom";
 import styles from "./solution-layout.module.css";
 
 interface SolutionLayoutProps {
@@ -9,10 +9,10 @@ interface SolutionLayoutProps {
 }
 
 export const SolutionLayout: React.FC<SolutionLayoutProps> = ({
-  extraClass = "",
-  title,
-  children,
-}) => {
+                                                                extraClass = "",
+                                                                title,
+                                                                children,
+                                                              }) => {
   return (
     <main className={`${styles.content} ${extraClass}`}>
       <div className={styles.titleBox}>
@@ -26,10 +26,10 @@ export const SolutionLayout: React.FC<SolutionLayoutProps> = ({
         </span>
       </div>
       <div className={styles.contentCard}>
-        <Link className={styles.link} to="/">
-          <ReturnButton extraClass={styles.returnButton} />
+        <Link className={styles.link} to="/" data-cy={'return-link'}>
+          <ReturnButton extraClass={styles.returnButton}/>
         </Link>
-        <h3 className={`text text_type_h3 text_color_h3 ${styles.cardTitle}`}>
+        <h3 className={`text text_type_h3 text_color_h3 ${styles.cardTitle}`} data-cy={'page-header'}>
           {title}
         </h3>
         {children}
