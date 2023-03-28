@@ -18,6 +18,11 @@ const textToElements = (text: string): IElement<string>[] => {
 export default function* reverseElements(text: string): Generator<IElement<string>[]> {
   let arr = textToElements(text);
 
+  if (arr.length < 2) {
+    yield arr;
+    return;
+  }
+
   yield arr;
 
   let i = 0;
