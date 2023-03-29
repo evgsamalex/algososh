@@ -1,24 +1,28 @@
 import {circleSelector, clearSelector, inputSelector, removeSelector, submitSelector} from "./constants";
+import TCircleState = Cypress.TCircleState;
 
-describe('stack tests', () => {
+describe('queue tests', () => {
+
   beforeEach(() => {
-    cy.visit('./stack')
+    cy.visit('./queue')
   });
 
   it('Кнопка должна быть не активна если текст пустой', () => {
     cy.checkInputAndButton(inputSelector, submitSelector);
     cy.checkInputAndButton(inputSelector, removeSelector);
-    cy.checkInputAndButton(inputSelector, clearSelector);
+    cy.checkCount(circleSelector, 7);
   });
 
-  it('Добавление в стек', () => {
-    cy.fixture('stack/add.json').then(obj => {
+  it('Добавление в очередь', () => {
+    cy.fixture('queue/add.json').then(obj => {
       for (let i = 0; i < obj.steps.length; i++) {
         const item = obj.steps[i];
         cy.setInputAndSubmit(inputSelector, submitSelector, item.text)
         for (let state of item.states) {
           cy.get(circleSelector).each((element, index) => {
-            cy.checkCircle(element, state[index]);
+            if (state[index]) {
+              cy.checkCircle(element, state[index]);
+            }
           })
           cy.wait(obj.delay);
         }
@@ -26,8 +30,8 @@ describe('stack tests', () => {
     })
   })
 
-  it('Удаление из стека', () => {
-    cy.fixture('stack/remove.json').then(obj => {
+  it('Удаление из очереди', () => {
+    cy.fixture('queue/remove.json').then(obj => {
       const initItems = obj.items;
       const delay = obj.delay;
       for (let letter of initItems) {
@@ -39,7 +43,9 @@ describe('stack tests', () => {
         cy.clickButton(removeSelector);
         for (let state of item.states) {
           cy.get(circleSelector).each((element, index) => {
-            cy.checkCircle(element, state[index]);
+            if (state[index]) {
+              cy.checkCircle(element, state[index]);
+            }
           })
           cy.wait(obj.delay);
         }
@@ -52,8 +58,13 @@ describe('stack tests', () => {
       cy.setInputAndSubmit(inputSelector, submitSelector, letter);
       cy.wait(500);
     }
-    cy.checkCount(circleSelector, 3);
     cy.clickButton(clearSelector);
-    cy.checkCount(circleSelector, 0);
+    cy.get(circleSelector).each((element, index) => {
+      const state: TCircleState = {letter: "", state: "default"}
+      if (index === 0) {
+        state.head = "head"
+      }
+      cy.checkCircle(element, state);
+    })
   })
 })

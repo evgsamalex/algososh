@@ -1,7 +1,9 @@
 declare namespace Cypress {
   type TCircleState = {
     letter: string,
-    state: "default" | "changing" | "modified"
+    state: "default" | "changing" | "modified",
+    head?: string,
+    tail?: string
   }
 
   interface Chainable<Subject = any> {

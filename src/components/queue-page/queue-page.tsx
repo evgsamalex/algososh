@@ -56,19 +56,27 @@ export const QueuePage: React.FC = () => {
                      isLimitText
                      onChange={(e) => setText(e.currentTarget.value)}
                      value={text}
-                     disabled={isLoading}/>
+                     disabled={isLoading}
+                     data-cy={'input'}
+              />
               <Button text={'Добавить'}
                       disabled={isLoading || queueRef.current.isFull() || !text.length}
-                      type={"submit"}/>
+                      type={"submit"}
+                      data-cy={'submit'}
+              />
               <Button text={'Удалить'}
                       onClick={remove}
                       disabled={isLoading || queueRef.current.isEmpty()}
-                      type={"button"}/>
+                      type={"button"}
+                      data-cy={'remove'}
+              />
               <Button text={'Очистить'}
                       disabled={isLoading}
                       type={"button"}
                       extraClass={'ml-40'}
-                      onClick={clear}/>
+                      onClick={clear}
+                      data-cy={'clear'}
+              />
             </FieldSet>
           </Form>
         }>
