@@ -55,21 +55,29 @@ export const StackPage: React.FC = () => {
                      isLimitText
                      onChange={(e) => setText(e.currentTarget.value)}
                      value={text}
-                     disabled={isLoading}/>
+                     disabled={isLoading}
+                     data-cy={'input'}
+              />
               <Button text={'Добавить'}
                       disabled={isLoading || text.length === 0}
-                      type={"submit"}/>
+                      type={"submit"}
+                      data-cy={'submit'}
+              />
 
               <Button text={'Удалить'}
                       onClick={() => fetching(remove)}
                       disabled={isLoading || items.length === 0}
-                      type={"button"}/>
+                      type={"button"}
+                      data-cy={'remove'}
+              />
 
               <Button text={'Очистить'}
                       disabled={isLoading || items.length === 0}
                       type={"button"}
                       extraClass={'ml-40'}
-                      onClick={clear}/>
+                      onClick={clear}
+                      data-cy={'clear'}
+              />
             </FieldSet>
           </Form>
         }>

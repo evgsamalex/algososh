@@ -10,5 +10,9 @@ declare namespace Cypress {
     checkInputAndButton(inputSelector: string, buttonSelector: string): Chainable
 
     setInputAndSubmit(inputSelector: string, submitSelector: string, text: string): Chainable
+
+    clickButton(buttonSelector: string): Chainable;
+
+    checkCount(selector: string, count: number);
   }
 }

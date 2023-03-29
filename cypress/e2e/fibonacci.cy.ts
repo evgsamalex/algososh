@@ -1,6 +1,6 @@
 import {submitSelector, inputSelector, circleSelector} from "./constants";
 
-describe('string tests', () => {
+describe('fibonacci tests', () => {
   beforeEach(() => {
     cy.visit('/fibonacci');
   });

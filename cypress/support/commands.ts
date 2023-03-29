@@ -15,3 +15,11 @@ Cypress.Commands.add('setInputAndSubmit', (inputSelector, submitSelector, text: 
   cy.get(submitSelector).should('not.have.attr', 'disabled');
   cy.get(submitSelector).click();
 })
+
+Cypress.Commands.add('clickButton', (buttonSelector: string) => {
+  cy.get(buttonSelector).click();
+})
+
+Cypress.Commands.add('checkCount', (selector: string, count: number) => {
+  cy.get(selector).should('have.length', count);
+})
