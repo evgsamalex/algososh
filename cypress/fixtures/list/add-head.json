@@ -1,0 +1,110 @@
+{
+  "delay": 500,
+  "steps": [
+    {
+      "text": "1",
+      "states": [
+        [
+          {
+            "letter": "1",
+            "state": "default",
+            "head": "head",
+            "tail": "tail"
+          }
+        ]
+      ]
+    },
+    {
+      "text": "2",
+      "states": [
+        [
+          {
+            "letter": "1",
+            "state": "default",
+            "tail": "tail",
+            "headElement": {
+              "letter": "2",
+              "state": "changing"
+            }
+          }
+        ],
+        [
+          {
+            "head": "head",
+            "letter": "2",
+            "state": "modified"
+          },
+          {
+            "letter": "1",
+            "state": "default",
+            "tail": "tail"
+          }
+        ],
+        [
+          {
+            "head": "head",
+            "letter": "2",
+            "state": "default"
+          },
+          {
+            "letter": "1",
+            "state": "default",
+            "tail": "tail"
+          }
+        ]
+      ]
+    },
+    {
+      "text": "3",
+      "states": [
+        [
+          {
+            "letter": "2",
+            "state": "default",
+            "headElement": {
+              "letter": "3",
+              "state": "changing"
+            }
+          },
+          {
+            "letter": "1",
+            "state": "default",
+            "tail": "tail"
+          }
+        ],
+        [
+          {
+            "head": "head",
+            "letter": "3",
+            "state": "modified"
+          },
+          {
+            "letter": "2",
+            "state": "default"
+          },
+          {
+            "letter": "1",
+            "state": "default",
+            "tail": "tail"
+          }
+        ],
+        [
+          {
+            "head": "head",
+            "letter": "3",
+            "state": "default"
+          },
+          {
+            "letter": "2",
+            "state": "default"
+          },
+          {
+            "letter": "1",
+            "state": "default",
+            "tail": "tail"
+          }
+        ]
+      ]
+    }
+  ]
+}

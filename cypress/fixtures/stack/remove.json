@@ -1,0 +1,66 @@
+{
+  "items": [
+    "1",
+    "2",
+    "3"
+  ],
+  "delay": 500,
+  "steps": [
+    {
+      "states": [
+        [
+          {
+            "letter": "1",
+            "state": "default"
+          },
+          {
+            "letter": "2",
+            "state": "default"
+          },
+          {
+            "letter": "3",
+            "state": "changing"
+          }
+        ],
+        [
+          {
+            "letter": "1",
+            "state": "default"
+          },
+          {
+            "letter": "2",
+            "state": "default"
+          },
+          {
+            "letter": "3",
+            "state": "default"
+          }
+        ]
+      ]
+    },
+    {
+      "states": [
+        [
+          {
+            "letter": "1",
+            "state": "default"
+          },
+          {
+            "letter": "2",
+            "state": "changing"
+          }
+        ],
+        [
+          {
+            "letter": "1",
+            "state": "default"
+          },
+          {
+            "letter": "2",
+            "state": "default"
+          }
+        ]
+      ]
+    }
+  ]
+}

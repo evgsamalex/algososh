@@ -39,12 +39,15 @@ export const StringComponent: React.FC = () => {
                 <Input maxLength={11}
                        isLimitText
                        onChange={(e) => setText(e.currentTarget.value)}
-                       disabled={isLoading}/>
+                       value={text}
+                       disabled={isLoading} data-cy={'input'}/>
                 <Button text={'Развернуть'}
                         disabled={text.length === 0}
                         onClick={onSubmit}
                         isLoader={isLoading}
-                        type={"submit"}/>
+                        type={"submit"}
+                        data-cy={'submit'}
+                />
               </FieldSet>
             </Form>
           }>

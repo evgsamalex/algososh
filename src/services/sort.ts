@@ -47,6 +47,10 @@ export function* selectGenerator(arr: IElement<number>[], direction: Direction):
 
 export function* bubbleGenerator(arr: IElement<number>[], direction: Direction) {
   const {length} = arr;
+  if (length === 1) {
+    yield arr;
+    return;
+  }
   for (let i = 0; i < length; i++) {
     for (let j = 0; j < length - i - 1; j++) {
       arr[j].changing();

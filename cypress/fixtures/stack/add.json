@@ -1,0 +1,80 @@
+{
+  "delay": 500,
+  "steps": [
+    {
+      "text": "1",
+      "states": [
+        [
+          {
+            "letter": "1",
+            "state": "changing"
+          }
+        ],
+        [
+          {
+            "letter": "1",
+            "state": "default"
+          }
+        ]
+      ]
+    },
+    {
+      "text": "2",
+      "states": [
+        [
+          {
+            "letter": "1",
+            "state": "default"
+          },
+          {
+            "letter": "2",
+            "state": "changing"
+          }
+        ],
+        [
+          {
+            "letter": "1",
+            "state": "default"
+          },
+          {
+            "letter": "2",
+            "state": "default"
+          }
+        ]
+      ]
+    },
+    {
+      "text": "3",
+      "states": [
+        [
+          {
+            "letter": "1",
+            "state": "default"
+          },
+          {
+            "letter": "2",
+            "state": "default"
+          },
+          {
+            "letter": "3",
+            "state": "changing"
+          }
+        ],
+        [
+          {
+            "letter": "1",
+            "state": "default"
+          },
+          {
+            "letter": "2",
+            "state": "default"
+          },
+          {
+            "letter": "3",
+            "state": "default"
+          }
+        ]
+      ]
+    }
+  ]
+}

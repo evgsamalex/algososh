@@ -1,0 +1,78 @@
+{
+  "text": "1234",
+  "delay": 1000,
+  "states": [
+    [
+      {
+        "letter": "1",
+        "state": "default"
+      },
+      {
+        "letter": "2",
+        "state": "default"
+      },
+      {
+        "letter": "3",
+        "state": "default"
+      },
+      {
+        "letter": "4",
+        "state": "default"
+      }
+    ],
+    [
+      {
+        "letter": "1",
+        "state": "changing"
+      },
+      {
+        "letter": "2",
+        "state": "default"
+      },
+      {
+        "letter": "3",
+        "state": "default"
+      },
+      {
+        "letter": "4",
+        "state": "changing"
+      }
+    ],
+    [
+      {
+        "letter": "4",
+        "state": "modified"
+      },
+      {
+        "letter": "2",
+        "state": "changing"
+      },
+      {
+        "letter": "3",
+        "state": "changing"
+      },
+      {
+        "letter": "1",
+        "state": "modified"
+      }
+    ],
+    [
+      {
+        "letter": "4",
+        "state": "modified"
+      },
+      {
+        "letter": "3",
+        "state": "modified"
+      },
+      {
+        "letter": "2",
+        "state": "modified"
+      },
+      {
+        "letter": "1",
+        "state": "modified"
+      }
+    ]
+  ]
+}

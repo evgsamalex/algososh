@@ -18,7 +18,7 @@ const CircleList = <T, >({items, extraClassName, showIndex = false, showArrows =
   if (!items.length) return null;
 
   return (
-    <div className={classNames(css.items, extraClassName)}>
+    <div className={classNames(css.items, extraClassName)} data-cy={'circle-list'}>
       {
         items.map((item, index) => {
             const letter = (item.head && item.head.hideElement) || (item.tail && item.tail.hideElement)
@@ -42,7 +42,7 @@ const CircleList = <T, >({items, extraClassName, showIndex = false, showArrows =
                   tail={toTailOrHead(item.tail)}
                 />
                 {index < items.length - 1 &&
-                  <ArrowIcon fill={fill(item.state)}/>
+                  <ArrowIcon fill={fill(item.state)} data-cy={'arrow'}/>
                 }
               </div>)
             }
