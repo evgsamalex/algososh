@@ -3,24 +3,35 @@
 exports[`Кружок c index 1`] = `
 <div
   className="content "
+  data-cy="circle"
+  data-test-state="default"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head element"
+    className="text text_type_input text_color_input mb-4 absolute head
+          element"
+    data-cy="head"
   />
   <div
     className="circle   default"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   >
     1
   </p>
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail60 element"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail60
+          element
+        "
+    data-cy="tail"
   />
 </div>
 `;
@@ -28,22 +39,33 @@ exports[`Кружок c index 1`] = `
 exports[`Кружок changing 1`] = `
 <div
   className="content "
+  data-cy="circle"
+  data-test-state="changing"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head element"
+    className="text text_type_input text_color_input mb-4 absolute head
+          element"
+    data-cy="head"
   />
   <div
     className="circle   changing"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+    data-cy="tail"
   />
 </div>
 `;
@@ -51,22 +73,33 @@ exports[`Кружок changing 1`] = `
 exports[`Кружок default 1`] = `
 <div
   className="content "
+  data-cy="circle"
+  data-test-state="default"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head element"
+    className="text text_type_input text_color_input mb-4 absolute head
+          element"
+    data-cy="head"
   />
   <div
     className="circle   default"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+    data-cy="tail"
   />
 </div>
 `;
@@ -74,22 +107,33 @@ exports[`Кружок default 1`] = `
 exports[`Кружок modified 1`] = `
 <div
   className="content "
+  data-cy="circle"
+  data-test-state="modified"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head element"
+    className="text text_type_input text_color_input mb-4 absolute head
+          element"
+    data-cy="head"
   />
   <div
     className="circle   modified"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+    data-cy="tail"
   />
 </div>
 `;
@@ -97,22 +141,33 @@ exports[`Кружок modified 1`] = `
 exports[`Кружок без буквы 1`] = `
 <div
   className="content "
+  data-cy="circle"
+  data-test-state="default"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head element"
+    className="text text_type_input text_color_input mb-4 absolute head
+          element"
+    data-cy="head"
   />
   <div
     className="circle   default"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+    data-cy="tail"
   />
 </div>
 `;
@@ -120,9 +175,13 @@ exports[`Кружок без буквы 1`] = `
 exports[`Кружок с head 1`] = `
 <div
   className="content "
+  data-cy="circle"
+  data-test-state="default"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head string"
+    className="text text_type_input text_color_input mb-4 absolute head
+          string"
+    data-cy="head"
   >
     h
   </div>
@@ -131,15 +190,22 @@ exports[`Кружок с head 1`] = `
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     >
       H
     </p>
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+    data-cy="tail"
   />
 </div>
 `;
@@ -147,30 +213,45 @@ exports[`Кружок с head 1`] = `
 exports[`Кружок с react-элементом в head 1`] = `
 <div
   className="content "
+  data-cy="circle"
+  data-test-state="default"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head element"
+    className="text text_type_input text_color_input mb-4 absolute head
+          element"
+    data-cy="head"
   >
     <div
       className="content "
+      data-cy="circle-small"
+      data-test-state="default"
     >
       <div
-        className="text text_type_input text_color_input mb-4 absolute head element"
+        className="text text_type_input text_color_input mb-4 absolute head
+          element"
+        data-cy="head-small"
       />
       <div
         className="circle  small default"
       >
         <p
           className="text text_type_circle text_color_input letter"
+          data-cy="letter-small"
         >
           h
         </p>
       </div>
       <p
         className="text text_type_input text_color_input mt-4 absolute index"
+        data-cy="index"
       />
       <div
-        className="text text_type_input text_color_input mt-4 absolute tail30 element"
+        className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+        data-cy="tail-small"
       />
     </div>
   </div>
@@ -179,15 +260,22 @@ exports[`Кружок с react-элементом в head 1`] = `
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     >
       H
     </p>
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+    data-cy="tail"
   />
 </div>
 `;
@@ -195,45 +283,67 @@ exports[`Кружок с react-элементом в head 1`] = `
 exports[`Кружок с react-элементом в tail 1`] = `
 <div
   className="content "
+  data-cy="circle"
+  data-test-state="default"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head element"
+    className="text text_type_input text_color_input mb-4 absolute head
+          element"
+    data-cy="head"
   />
   <div
     className="circle   default"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     >
       T
     </p>
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+    data-cy="tail"
   >
     <div
       className="content "
+      data-cy="circle"
+      data-test-state="default"
     >
       <div
-        className="text text_type_input text_color_input mb-4 absolute head element"
+        className="text text_type_input text_color_input mb-4 absolute head
+          element"
+        data-cy="head"
       />
       <div
         className="circle   default"
       >
         <p
           className="text text_type_circle text_color_input letter"
+          data-cy="letter"
         >
           t
         </p>
       </div>
       <p
         className="text text_type_input text_color_input mt-4 absolute index"
+        data-cy="index"
       />
       <div
-        className="text text_type_input text_color_input mt-4 absolute tail30 element"
+        className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+        data-cy="tail"
       />
     </div>
   </div>
@@ -243,24 +353,35 @@ exports[`Кружок с react-элементом в tail 1`] = `
 exports[`Кружок с tail 1`] = `
 <div
   className="content "
+  data-cy="circle"
+  data-test-state="default"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head element"
+    className="text text_type_input text_color_input mb-4 absolute head
+          element"
+    data-cy="head"
   />
   <div
     className="circle   default"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     >
       T
     </p>
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail30 string"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          string
+        "
+    data-cy="tail"
   >
     t
   </div>
@@ -270,24 +391,35 @@ exports[`Кружок с tail 1`] = `
 exports[`Кружок с буквами 1`] = `
 <div
   className="content "
+  data-cy="circle"
+  data-test-state="default"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head element"
+    className="text text_type_input text_color_input mb-4 absolute head
+          element"
+    data-cy="head"
   />
   <div
     className="circle   default"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter"
     >
       123
     </p>
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+    data-cy="tail"
   />
 </div>
 `;
@@ -295,22 +427,33 @@ exports[`Кружок с буквами 1`] = `
 exports[`Кружок с пропcом isSmall ===  true 1`] = `
 <div
   className="content "
+  data-cy="circle-small"
+  data-test-state="default"
 >
   <div
-    className="text text_type_input text_color_input mb-4 absolute head element"
+    className="text text_type_input text_color_input mb-4 absolute head
+          element"
+    data-cy="head-small"
   />
   <div
     className="circle  small default"
   >
     <p
       className="text text_type_circle text_color_input letter"
+      data-cy="letter-small"
     />
   </div>
   <p
     className="text text_type_input text_color_input mt-4 absolute index"
+    data-cy="index"
   />
   <div
-    className="text text_type_input text_color_input mt-4 absolute tail30 element"
+    className="text text_type_input text_color_input mt-4
+          absolute
+          tail30
+          element
+        "
+    data-cy="tail-small"
   />
 </div>
 `;

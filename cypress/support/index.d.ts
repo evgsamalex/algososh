@@ -3,11 +3,13 @@ declare namespace Cypress {
     letter: string,
     state: "default" | "changing" | "modified",
     head?: string,
-    tail?: string
+    tail?: string,
+    tailElement?: TCircleState,
+    headElement?: TCircleState
   }
 
   interface Chainable<Subject = any> {
-    checkCircle<E extends Node = HTMLElement>(element: E | JQuery<E>, state: TCircleState): Chainable<JQuery<E>>
+    checkCircle<E extends Node = HTMLElement>(element: E | JQuery<E>, state: TCircleState, isSmall?: boolean): Chainable<JQuery<E>>
 
     checkInputAndButton(inputSelector: string, buttonSelector: string): Chainable
 

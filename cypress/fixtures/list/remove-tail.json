@@ -1,0 +1,32 @@
+{
+  "delay": 500,
+  "steps": [
+    {
+      "states": [
+        [
+          {
+            "letter": "1",
+            "state": "default",
+            "head": "head"
+          },
+          {
+            "letter": "",
+            "state": "default",
+            "tailElement": {
+              "letter": "2",
+              "state": "changing"
+            }
+          }
+        ],
+        [
+          {
+            "head": "head",
+            "letter": "1",
+            "state": "default",
+            "tail": "tail"
+          }
+        ]
+      ]
+    }
+  ]
+}

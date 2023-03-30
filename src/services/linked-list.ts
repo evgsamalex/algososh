@@ -26,13 +26,13 @@ export const toItems = <T, >(list: ILinkedList<IElement<T>>): IElement<T>[] => {
 
 
 export function* addToHead<T>(list: ILinkedList<IElement<T>>, item: T): Generator<IElement<T>[]> {
-  console.log('123');
   const head = list.head;
   const element = new Element(0, item);
   element.head = headTail('head');
   if (!head) {
     list.insertAt(element, 0);
-    return toItems(list);
+    yield toItems(list);
+    return;
   }
 
   head.value.head = headTailElement(String(item), ElementStates.Changing);
@@ -43,8 +43,7 @@ export function* addToHead<T>(list: ILinkedList<IElement<T>>, item: T): Generato
   element.modified();
   yield toItems(list);
   element.default();
-  console.log(list);
-  return toItems(list);
+  yield toItems(list);
 }
 
 export function* removeFromHead<T>(list: ILinkedList<IElement<T>>) {
@@ -56,7 +55,7 @@ export function* removeFromHead<T>(list: ILinkedList<IElement<T>>) {
 
   list.removeHead();
   console.log(list);
-  return toItems(list);
+  yield toItems(list);
 }
 
 export function* addToTail<T>(list: ILinkedList<IElement<T>>, item: T) {
@@ -75,7 +74,6 @@ export function* addToTail<T>(list: ILinkedList<IElement<T>>, item: T) {
   element.modified();
   yield toItems(list);
   element.default();
-  console.log(list);
   return toItems(list);
 }
 

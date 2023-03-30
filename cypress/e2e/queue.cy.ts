@@ -53,7 +53,7 @@ describe('queue tests', () => {
     })
   })
 
-  it('Длина стека после нажатия кнопки Очистить должна быть 0', () => {
+  it('Длина очереди после нажатия кнопки Очистить должна быть 0', () => {
     for (let letter of ["1", "2", "3"]) {
       cy.setInputAndSubmit(inputSelector, submitSelector, letter);
       cy.wait(500);

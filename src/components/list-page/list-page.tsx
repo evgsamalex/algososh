@@ -7,7 +7,7 @@ import {Button} from "../ui/button/button";
 import FieldSet from "../ui/fieldset/fieldset";
 import css from './list-page.module.css'
 import {ILinkedList, LinkedList} from "../../types/structures/linked-list";
-import {IElement} from "../../types/structures/element";
+import {Element, IElement, THeadTail} from "../../types/structures/element";
 import {
   addToHead,
   addToTail,
@@ -20,6 +20,7 @@ import CircleList from "../ui/circle-list/circle-list";
 import {useFetching} from "../../hooks/useFetching";
 import {withDelay} from "../../services/utils";
 import {SHORT_DELAY_IN_MS} from "../../constants/delays";
+import {ElementStates} from "../../types/element-states";
 
 const DefaultText = '';
 const DefaultIndex = 0; //A component is changing an uncontrolled input to be controlled.
@@ -32,6 +33,9 @@ enum ProcessType {
   insertAt,
   removeAt
 }
+
+const element = new Element(0, '1', ElementStates.Default);
+element.head = {elementType: "element", value: '2', state: ElementStates.Modified} as THeadTail;
 
 export const ListPage: React.FC = () => {
   const listRef = useRef<ILinkedList<IElement<string>>>(new LinkedList<IElement<string>>());
@@ -54,7 +58,6 @@ export const ListPage: React.FC = () => {
   }
 
   const onSubmit = (e: FormEvent) => {
-    console.log(123);
     e.preventDefault();
     fetching(run(addToHead(listRef.current, text), ProcessType.addToHead))
   }
@@ -95,12 +98,14 @@ export const ListPage: React.FC = () => {
                      onChange={e => setText(e.currentTarget.value)}
                      placeholder={'Введите значение'}
                      extraClass={css.input}
+                     data-cy={'input'}
               />
               <Button text={'Добавить в head'}
                       type={"submit"}
                       extraClass={css.defaultButton}
                       disabled={isLoading || !text.length}
                       isLoader={isLoading && processRef.current === ProcessType.addToHead}
+                      data-cy={'submit'}
               />
               <Button text={'Добавить в tail'}
                       type={"button"}
@@ -108,6 +113,7 @@ export const ListPage: React.FC = () => {
                       extraClass={css.defaultButton}
                       disabled={isLoading || !text.length}
                       isLoader={isLoading && processRef.current === ProcessType.addToTail}
+                      data-cy={'add-tail'}
               />
               <Button text={'Удалить из head'}
                       type={"button"}
@@ -115,6 +121,7 @@ export const ListPage: React.FC = () => {
                       extraClass={css.defaultButton}
                       disabled={isLoading || !listRef.current.size}
                       isLoader={isLoading && processRef.current === ProcessType.removeHead}
+                      data-cy={'remove-head'}
               />
               <Button text={'Удалить из tail'}
                       type={"button"}
@@ -122,6 +129,7 @@ export const ListPage: React.FC = () => {
                       onClick={removeTail}
                       disabled={isLoading || !listRef.current.size}
                       isLoader={isLoading && processRef.current === ProcessType.removeTail}
+                      data-cy={'remove-tail'}
               />
             </FieldSet>
             <FieldSet>
@@ -133,6 +141,7 @@ export const ListPage: React.FC = () => {
                 max={listRef.current.size === 0 ? 0 : listRef.current.size - 1}
                 onChange={e => setIndex(Number(e.currentTarget.value))}
                 extraClass={css.input}
+                data-cy={'input-index'}
               />
               <Button
                 text={'Добавить по индексу'}
@@ -141,6 +150,7 @@ export const ListPage: React.FC = () => {
                 disabled={isLoading || !text.length || index === undefined}
                 isLoader={isLoading && processRef.current === ProcessType.insertAt}
                 type={'button'}
+                data-cy={'add-index'}
               />
               <Button
                 text={'Удалить по индексу'}
@@ -149,6 +159,7 @@ export const ListPage: React.FC = () => {
                 disabled={isLoading || index === undefined}
                 isLoader={isLoading && processRef.current === ProcessType.removeAt}
                 type={'button'}
+                data-cy={'remove-index'}
               />
             </FieldSet>
           </Form>

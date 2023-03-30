@@ -1,0 +1,90 @@
+{
+  "delay": 500,
+  "steps": [
+    {
+      "index": "2",
+      "states": [
+        [
+          {
+            "letter": "1",
+            "state": "changing",
+            "head": "head"
+          },
+          {
+            "letter": "2",
+            "state": "default"
+          },
+          {
+            "letter": "3",
+            "state": "default"
+          },
+          {
+            "letter": "4",
+            "state": "default",
+            "tail": "tail"
+          }
+        ],
+        [
+          {
+            "letter": "1",
+            "state": "changing",
+            "head": "head"
+          },
+          {
+            "letter": "2",
+            "state": "changing"
+          },
+          {
+            "letter": "3",
+            "state": "default"
+          },
+          {
+            "letter": "4",
+            "state": "default",
+            "tail": "tail"
+          }
+        ],
+        [
+          {
+            "letter": "1",
+            "state": "changing",
+            "head": "head"
+          },
+          {
+            "letter": "2",
+            "state": "changing"
+          },
+          {
+            "letter": "",
+            "state": "default",
+            "tailElement": {
+              "letter": "3",
+              "state": "changing"
+            }
+          },
+          {
+            "letter": "4",
+            "state": "default",
+            "tail": "tail"
+          }
+        ],
+        [
+          {
+            "letter": "1",
+            "state": "default",
+            "head": "head"
+          },
+          {
+            "letter": "2",
+            "state": "default"
+          },
+          {
+            "letter": "4",
+            "state": "default",
+            "tail": "tail"
+          }
+        ]
+      ]
+    }
+  ]
+}

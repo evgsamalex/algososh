@@ -1,13 +1,28 @@
 import TCircleState = Cypress.TCircleState;
 
-Cypress.Commands.add('checkCircle', (element, state: TCircleState) => {
+Cypress.Commands.add('checkCircle', (element: JQuery<HTMLElement>, state: TCircleState, isSmall: boolean = false) => {
   cy.wrap(element).invoke('attr', 'data-test-state').should('eq', state.state);
-  cy.wrap(element).find('[data-cy="letter"]').should('have.text', state.letter);
-  if (state.head) {
-    cy.wrap(element).find('[data-cy="head"]').should('have.text', state.head);
-  }
-  if (state.tail) {
-    cy.wrap(element).find('[data-cy="tail"]').should('have.text', state.tail);
+
+  if (isSmall) {
+    cy.wrap(element).find('[data-cy="letter-small"]').should('have.text', state.letter);
+  } else {
+    cy.wrap(element).find('[data-cy="letter"]').should('have.text', state.letter);
+
+    if (state.head) {
+      cy.wrap(element).find('[data-cy="head"]').should('have.text', state.head);
+    }
+
+    if (state.tail) {
+      cy.wrap(element).find('[data-cy="tail"]').should('have.text', state.tail);
+    }
+
+    if (state.headElement) {
+      cy.checkCircle(element.find('[data-cy="circle-small"]').first(), state.headElement, true);
+    }
+
+    if (state.tailElement) {
+      cy.checkCircle(element.find('[data-cy="circle-small"]').last(), state.tailElement, true);
+    }
   }
 })
 
