@@ -16,24 +16,20 @@ import FieldSet from "../ui/fieldset/fieldset";
 export const StackPage: React.FC = () => {
   const [text, setText] = useState<string>('');
   const [items, setItems] = useState<IElement<string>[]>([]); //for refresh;
-  const [isLoading, , fetching] = useFetching(async ([callback]) => {
-    await callback();
+  const [isRemoving, , removing] = useFetching(async () => {
+    await withDelay(stackRemove(stackRef.current), item => {
+      setItems([...item.all()])
+    }, SHORT_DELAY_IN_MS);
   });
 
-  const stackRef = useRef<IStack<IElement<string>>>(new Stack<IElement<string>>());
-
-  const add = async () => {
+  const [isAdding, , adding] = useFetching(async () => {
     await withDelay(stackPush(stackRef.current, text), item => {
       setItems([...item.all()])
     }, SHORT_DELAY_IN_MS);
     setText('');
-  }
+  });
 
-  const remove = async () => {
-    await withDelay(stackRemove(stackRef.current), item => {
-      setItems([...item.all()])
-    }, SHORT_DELAY_IN_MS);
-  }
+  const stackRef = useRef<IStack<IElement<string>>>(new Stack<IElement<string>>());
 
   const clear = () => {
     stackRef.current = new Stack<IElement<string>>();
@@ -42,7 +38,7 @@ export const StackPage: React.FC = () => {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    fetching(add);
+    adding();
   }
 
   return (
@@ -55,24 +51,26 @@ export const StackPage: React.FC = () => {
                      isLimitText
                      onChange={(e) => setText(e.currentTarget.value)}
                      value={text}
-                     disabled={isLoading}
+                     disabled={isAdding || isRemoving}
                      data-cy={'input'}
               />
               <Button text={'Добавить'}
-                      disabled={isLoading || text.length === 0}
+                      disabled={text.length === 0 || isRemoving}
+                      isLoader={isAdding}
                       type={"submit"}
                       data-cy={'submit'}
               />
 
               <Button text={'Удалить'}
-                      onClick={() => fetching(remove)}
-                      disabled={isLoading || items.length === 0}
+                      onClick={() => removing()}
+                      disabled={items.length === 0 || isAdding}
+                      isLoader={isRemoving}
                       type={"button"}
                       data-cy={'remove'}
               />
 
               <Button text={'Очистить'}
-                      disabled={isLoading || items.length === 0}
+                      disabled={isAdding || isRemoving || items.length === 0}
                       type={"button"}
                       extraClass={'ml-40'}
                       onClick={clear}

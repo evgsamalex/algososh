@@ -21,29 +21,28 @@ export const QueuePage: React.FC = () => {
 
   const [text, setText] = useState<string>(EmptyValue);
   const [items, setItems] = useState<IElement<string>[]>(toItems(queueRef.current, EmptyValue)); //for refresh;
-  const [isLoading, , fetching] = useFetching(async ([callback]) => {
-    await callback();
+
+  const [isEnqueue, , enqueue] = useFetching(async () => {
+    await withDelay(enqueueGenerator(queueRef.current, items, text, EmptyValue), item => setItems(item), SHORT_DELAY_IN_MS)
   });
 
-  const run = (generator: Generator<IElement<string>[]>) => {
-    return async () => await withDelay(generator, item => setItems(item), SHORT_DELAY_IN_MS);
-  }
+  const [isDequeue, , dequeue] = useFetching(async () => {
+    await withDelay(dequeueGenerator(queueRef.current, items, EmptyValue), item => setItems(item), SHORT_DELAY_IN_MS)
+  });
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    fetching(run(enqueueGenerator(queueRef.current, items, text, EmptyValue)));
+    enqueue();
     setText(EmptyValue);
   }
 
   const remove = () => {
-    fetching(run(dequeueGenerator(queueRef.current, items, EmptyValue)));
+    dequeue();
   }
 
   const clear = () => {
-    fetching(async () => {
-      queueRef.current = new Queue<IElement<string>>(QueueSize);
-      setItems(toItems(queueRef.current, EmptyValue));
-    })
+    queueRef.current = new Queue<IElement<string>>(QueueSize);
+    setItems(toItems(queueRef.current, EmptyValue));
   }
 
   return (
@@ -56,22 +55,24 @@ export const QueuePage: React.FC = () => {
                      isLimitText
                      onChange={(e) => setText(e.currentTarget.value)}
                      value={text}
-                     disabled={isLoading}
+                     disabled={isEnqueue || isDequeue}
                      data-cy={'input'}
               />
               <Button text={'Добавить'}
-                      disabled={isLoading || queueRef.current.isFull() || !text.length}
+                      disabled={isDequeue || queueRef.current.isFull() || !text.length}
+                      isLoader={isEnqueue}
                       type={"submit"}
                       data-cy={'submit'}
               />
               <Button text={'Удалить'}
                       onClick={remove}
-                      disabled={isLoading || queueRef.current.isEmpty()}
+                      disabled={isEnqueue || queueRef.current.isEmpty()}
+                      isLoader={isDequeue}
                       type={"button"}
                       data-cy={'remove'}
               />
               <Button text={'Очистить'}
-                      disabled={isLoading}
+                      disabled={isEnqueue || isDequeue}
                       type={"button"}
                       extraClass={'ml-40'}
                       onClick={clear}

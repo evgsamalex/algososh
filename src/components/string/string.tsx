@@ -39,6 +39,7 @@ export const StringComponent: React.FC = () => {
                 <Input maxLength={11}
                        isLimitText
                        onChange={(e) => setText(e.currentTarget.value)}
+                       value={text}
                        disabled={isLoading} data-cy={'input'}/>
                 <Button text={'Развернуть'}
                         disabled={text.length === 0}
