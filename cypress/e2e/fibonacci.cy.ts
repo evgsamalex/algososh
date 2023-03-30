@@ -6,7 +6,8 @@ describe('fibonacci tests', () => {
   });
 
   it('Кнопка должна быть не активна если текст пустой', () => {
-    cy.checkInputAndButton(inputSelector, submitSelector);
+    cy.get(inputSelector).should("have.value", '0');
+    cy.get(submitSelector).should('have.attr', 'disabled');
   });
 
   it('Числа должны генерироваться корректно', () => {
